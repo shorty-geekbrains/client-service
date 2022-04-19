@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add user</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p><b>Add user</b></p>
+<form th:action="@{/api/registration}" th:object="${client}" method="post">
+    Name: <input type=text name="name" th:field="*{clientName}">
+    <br>
+    Second Name: <input type=text name="second name" th:field="*{clientSecondName}">
+    <br>
+    Age: <input type=number name="age" th:field="*{age}">
+    <br>
+    Sex: <input type=text name="sex" th:field="*{sex}">
+    <br>
+    Password: <input type=password name="password" th:field="*{clientPassword}">
+    <br>
+    Password: <input type=password name="confurm password" th:field="*{confPassword}">
+    <button type="submit" value="Submit">ADD</button>
+</form>
+<br>
+<a th:href="'/api/users'">К списку</a>
+
+</body>
+</html>
