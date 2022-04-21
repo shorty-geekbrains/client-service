@@ -1,4 +1,4 @@
-package ru.geekbrains.clientservice.entity;
+package ru.geekbrains.clientservice.entities;
 
 
 import lombok.Getter;
