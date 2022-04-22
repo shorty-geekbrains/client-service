@@ -12,10 +12,11 @@ create table shorty_video_service.client
     client_id           bigserial not null,
     client_name         char(50) not null,
     role_id             bigint   not null,
+    enabled             boolean not null ,
     client_second_name    char(50) not null,
     age                 int not null,
     sex                 boolean not null,
-    client_password       char(50) not null,
+    client_password       varchar(60) not null,
     client_photo          char(255) not null,
     constraint PK_44 primary key ( client_id ),
     constraint FK_58 foreign key ( role_id ) references shorty_video_service.client_role ( role_id )

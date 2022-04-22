@@ -1,13 +1,16 @@
 package ru.geekbrains.clientservice.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import ru.geekbrains.clientservice.config.WebSecurityConfig;
 import ru.geekbrains.clientservice.entity.Client;
 import ru.geekbrains.clientservice.service.ClientService;
 
@@ -17,29 +20,26 @@ import ru.geekbrains.clientservice.service.ClientService;
  */
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/api")
 public class ClientController {
 
     private final ClientService clientService;
+    private final PasswordEncoder passwordEncoder;
 
-    @Autowired
-    public ClientController(ClientService clientService) {
-        this.clientService = clientService;
-    }
 
-    @RequestMapping(
-            value = {"/users"},
-            method = {RequestMethod.GET})
-    public ModelAndView findAll(Model model) {
+    @GetMapping ("/users")
+    public String findAll(Model model) {
         model.addAttribute("clients", this.clientService.findAllClients());
-        return new ModelAndView("index");
+        return "index";
     }
 
     @GetMapping({"/registration"})
-    public String registration(Model model) {
+    public ModelAndView registration(Model model) {
         Client client = new Client();
         model.addAttribute("client", client);
-        return "registration";
+//        System.out.println(passwordEncoder.encode("$2a$10$ygEo61EjeHlC9QPVB.6o2.5x5v9j44dW3cocJMskA74VRhJ0Aa2H2"));
+        return new ModelAndView("registration");
     }
 
     @PostMapping({"/registration"})
@@ -53,11 +53,19 @@ public class ClientController {
             System.out.println("Client is registered already");
             return "redirect:/api/registration";
         } else {
-            Client client = new Client(clientName, 2, clientSecondName, age, false, clientPassword,
-                    confPassword, "photo");
+            Client client = new Client(clientName, 2,true, clientSecondName, age, false,
+                    clientPassword,
+                    "photo",
+                    confPassword);
             this.clientService.saveClient(client);
         }
-        return "redirect:/api/users";
+        return "redirect:/api/welcome";
     }
+
+    @GetMapping("/welcome")
+    public String welcome() {
+        return "welcome";
+    }
+
 }
 

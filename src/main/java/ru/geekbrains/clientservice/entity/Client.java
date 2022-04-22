@@ -29,6 +29,9 @@ public class Client {
     @Column(name = "role_id")
     private int roleId;
 
+    @Column(name = "enabled")
+    private boolean enabled;
+
     @Column(name = "client_second_name")
     private String clientSecondName;
 
@@ -45,11 +48,12 @@ public class Client {
     private transient String confPassword;
 
 
-    public Client(String clientName, int roleId, String clientSecondName,
+    public Client(String clientName, int roleId, boolean enabled, String clientSecondName,
                   int age, boolean sex, String clientPassword, String clientPhoto,
                   String confPassword) {
         this.clientName = clientName;
         this.roleId = roleId;
+        this.enabled = enabled;
         this.clientSecondName = clientSecondName;
         this.age = age;
         this.sex = sex;
