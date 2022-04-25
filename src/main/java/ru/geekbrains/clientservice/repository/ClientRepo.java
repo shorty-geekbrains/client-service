@@ -1,7 +1,7 @@
 package ru.geekbrains.clientservice.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.geekbrains.clientservice.entity.Client;
+import ru.geekbrains.clientservice.entities.Client;
 
 /**
  * @author Nick Musinov e-mail:n.musinov@gmail.com
@@ -10,4 +10,6 @@ import ru.geekbrains.clientservice.entity.Client;
 public interface ClientRepo extends JpaRepository<Client, Long> {
 
     Client findByClientName(String name);
+
+
 }
