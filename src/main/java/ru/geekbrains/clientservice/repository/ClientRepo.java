@@ -9,5 +9,7 @@ import ru.geekbrains.clientservice.entity.Client;
  */
 public interface ClientRepo extends JpaRepository<Client, Long> {
 
-    Client findByClientName(String name);
+    Client findByClientName(String clientName);
+
+    Client findByClientSecondName(String secondName);
 }

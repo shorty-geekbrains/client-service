@@ -3,13 +3,12 @@ package ru.geekbrains.clientservice.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ru.geekbrains.clientservice.entity.Client;
 import ru.geekbrains.clientservice.service.ClientService;
+
+import java.util.List;
 
 /**
  * @author Nick Musinov e-mail:n.musinov@gmail.com
@@ -59,5 +58,16 @@ public class ClientController {
         }
         return "redirect:/api/users";
     }
+
+    @GetMapping("/client")
+    public Client findByClientName(@RequestParam("clientName") String clientName) {
+        return clientService.findByClientName(clientName);
+    }
+
+    @PutMapping("/update")
+    public Client updateClient(@RequestBody Client client) {
+        return clientService.updateClient(client);
+    }
+
 }
 
