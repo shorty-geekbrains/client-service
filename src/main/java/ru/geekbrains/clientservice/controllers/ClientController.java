@@ -1,6 +1,8 @@
 package ru.geekbrains.clientservice.controllers;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import ru.geekbrains.clientservice.entities.Client;
 import ru.geekbrains.clientservice.services.ClientService;

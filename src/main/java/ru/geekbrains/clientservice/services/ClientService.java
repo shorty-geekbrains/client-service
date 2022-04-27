@@ -7,26 +7,20 @@ import ru.geekbrains.clientservice.entities.Client;
 import ru.geekbrains.clientservice.repository.ClientRepo;
 import ru.geekbrains.clientservice.utils.PasswordAndUsernameValidator;
 
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
 public class ClientService {
 
     private final ClientRepo clientRepo;
     private final PasswordEncoder passwordEncoder;
+    private final PasswordAndUsernameValidator passwordValidator;
+    Client newClient = new Client();
 
-    public List<Client> findAllClients() {
-        return clientRepo.findAll();
-    }
 
     public boolean saveClient(Client client) {
-        PasswordAndUsernameValidator passwordValidator = new PasswordAndUsernameValidator();
-
         if (findClientByClientName(client.getClientName()) != null) {
             throw new IllegalArgumentException("Client is already registered");
         }
-        Client newClient = new Client();
         if (!passwordValidator.IsValid(client.getClientPassword())) {
             throw new IllegalArgumentException("Password isn't valid");
         }
@@ -39,9 +33,10 @@ public class ClientService {
         newClient.setClientSecondName(client.getClientSecondName());
         newClient.setEnabled(true);
         newClient.setAge(client.getAge());
-        newClient.setSex(true);
+        newClient.setSex(client.isSex());
         newClient.setClientPhoto("asd");
         newClient.setRoleId(client.getRoleId());
+//        вынести в DTO
 
         clientRepo.save(newClient);
         return true;
@@ -50,6 +45,7 @@ public class ClientService {
     public Client findClientByClientName(String name) {
         return clientRepo.findByClientName(name);
     }
+
 
 }
 
