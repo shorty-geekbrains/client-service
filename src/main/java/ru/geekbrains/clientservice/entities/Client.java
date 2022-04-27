@@ -1,6 +1,5 @@
 package ru.geekbrains.clientservice.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,45 +12,31 @@ import javax.persistence.*;
  */
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
 @Table(name = "client", schema = "shorty_video_service")
 public class Client {
 
     @Id
-    private long clientId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long clientId;
 
     private String clientName;
-
-    private int roleId;
-
+    private Integer roleId;
+    private boolean enabled;
     private String clientSecondName;
-
-    private int age;
-
+    private Integer age;
     private boolean sex;
-
     private String clientPassword;
-
     private String clientPhoto;
 
     @Transient
     private transient String confPassword;
 
-    public Client(String clientName, int roleId, String clientSecondName,
-                  int age, boolean sex, String clientPassword, String clientPhoto,
-                  String confPassword) {
-        this.clientName = clientName;
-        this.roleId = roleId;
-        this.clientSecondName = clientSecondName;
-        this.age = age;
-        this.sex = sex;
-        this.clientPassword = clientPassword;
-        this.clientPhoto = clientPhoto;
-        this.confPassword = confPassword;
-    }
-
+//    @ManyToOne
+//    @JoinTable(name = "client_role", joinColumns = @JoinColumn(name = "role_id"),
+//    inverseJoinColumns = @JoinColumn(name = "role_id"))
+//    private Role clientRole;
 
 }
