@@ -25,14 +25,14 @@ public class ClientService {
 
     private final ClientRepo clientRepo;
     private final PasswordEncoder passwordEncoder;
+    private final PasswordAndUsernameValidator passwordValidator;
+    Client newClient = new Client();
+
 
     public boolean saveClient(Client client) {
-        PasswordAndUsernameValidator passwordValidator = new PasswordAndUsernameValidator();
-
         if (findClientByClientName(client.getClientName()) != null) {
             throw new IllegalArgumentException("Client is already registered");
         }
-        Client newClient = new Client();
         if (!passwordValidator.IsValid(client.getClientPassword())) {
             throw new IllegalArgumentException("Password isn't valid");
         }
@@ -45,9 +45,10 @@ public class ClientService {
         newClient.setClientSecondName(client.getClientSecondName());
         newClient.setEnabled(true);
         newClient.setAge(client.getAge());
-        newClient.setSex(true);
+        newClient.setSex(client.isSex());
         newClient.setClientPhoto("asd");
         newClient.setRoleId(client.getRoleId());
+//        вынести в DTO
 
         clientRepo.save(newClient);
         return true;
@@ -73,3 +74,8 @@ public class ClientService {
     }
 
 }
+=======
+
+}
+
+>>>>>>> origin/Nick
