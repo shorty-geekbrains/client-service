@@ -12,7 +12,7 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "client_role")
+@Table(name = "role", schema = "shorty")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,8 +20,8 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long role_id;
+    private Long id;
 
-    private String role_name;
+    private String name;
 
 }

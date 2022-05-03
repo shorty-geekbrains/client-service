@@ -31,10 +31,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .dataSource(dataSource)
                 .passwordEncoder(passwordEncoder())
                 .usersByUsernameQuery(
-                        "select client_name, client_password, enabled from shorty_video_service.client where client_name = ?"
+                        "select name, password, enabled from shorty.client where name = ?"
                 )
                 .authoritiesByUsernameQuery(
-                        "select client_name, role_name as authorities from shorty_video_service.client left join shorty_video_service.client_role cr on cr.role_id = client.role_id where client_name = ?"
+                        "select c.name, r.name from shorty.client c left join shorty.role r on r.id = c.role_id where c.name = ?"
                 );
     }
 
@@ -44,9 +44,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .cors().and().csrf().disable()
                 .authorizeRequests()
-//                .antMatchers("/api/welcome").hasAuthority("ROLE_USER")
+                .antMatchers("/api/welcome").authenticated()
                 .antMatchers("/api/new_client").permitAll()
-                .and().formLogin();
+                .and().formLogin()
+                ;
     }
 
 
