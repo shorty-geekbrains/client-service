@@ -15,28 +15,23 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "client", schema = "shorty_video_service")
+@Table(name = "client", schema = "shorty")
 public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long clientId;
+    private Long id;
 
-    private String clientName;
-    private Integer roleId;
+    private String name;
+    private Integer role_id;
     private boolean enabled;
-    private String clientSecondName;
-    private Integer age;
+    private String second_name;
+    private String age;
     private boolean sex;
-    private String clientPassword;
-    private String clientPhoto;
+    private String password;
+    private String photo;
 
     @Transient
     private transient String confPassword;
-
-//    @ManyToOne
-//    @JoinTable(name = "client_role", joinColumns = @JoinColumn(name = "role_id"),
-//    inverseJoinColumns = @JoinColumn(name = "role_id"))
-//    private Role clientRole;
 
 }
