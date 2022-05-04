@@ -21,21 +21,28 @@ public class ClientController {
 
     private final ClientService clientService;
 
-    @GetMapping("/new_client")
+    @GetMapping("/registration")
     public ModelAndView addClient(Model model) {
         Client client = new Client();
         model.addAttribute("client", client);
         return new ModelAndView("sign-up");
     }
 
-    @PostMapping("/new_client")
+    @PostMapping("/registration")
     @ResponseStatus(HttpStatus.CREATED)
     public void addClient(@ModelAttribute("client") Client client) {
         clientService.saveClient(client);
     }
 
+    @GetMapping("/login")
+    public ModelAndView getLogin() {
+        return new ModelAndView("sign-in");
+    }
 
-
+    @PostMapping("/login")
+    public ModelAndView login() {
+        return new ModelAndView("sign-in");
+    }
 
 }
 

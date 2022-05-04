@@ -7,11 +7,11 @@
 </head>
 <body>
 <div class="form">
-    <form>
+    <form th:action="@{/api/login}" method="post">
         <h2>Login</h2>
         <div class="input-box">
             <i class="fa fa-user" aria-hidden="true"></i>
-            <input type="text" name="name" placeholder="Login" required>
+            <input type="text" name="username" placeholder="Login" required>
         </div>
         <div class="input-box">
             <i class="fa fa-unlock-alt" aria-hidden="true"></i>
@@ -20,7 +20,7 @@
         <div class="input-box">
             <input type="submit" name="sign-in" value="Login">
         </div>
-        <a href="/api/new_client">Register</a>
+        <a href="/">Register</a>
     </form>
 </div>
 </body>
