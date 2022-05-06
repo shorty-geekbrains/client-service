@@ -2,20 +2,24 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-size: cover;
-    background: url(https://picsum.photos/3000/2000/?image=1015) no-repeat;
+    background-image: url("images/shorty-logo.png");
+    background-size: 50%;
+    background-position-x: 700px;
+    background-position-y: -100px;
+    background-repeat: no-repeat;
+    background-color: #181818;
 }
 
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 25%;
-    height: 100%;
-    background-color: #03a9f4;
-    opacity: 0.8;
-}
+/*body::before {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 25%;*/
+/*    height: 100%;*/
+/*    background-color: #212121;*/
+/*    opacity: 0.8;*/
+/*}*/
 
 .form {
     position: absolute;
@@ -24,7 +28,7 @@ body::before {
     transform: translate(-50%, -50%);
     width: 350px;
     min-height: 400px;
-    background-color: #fff;
+    background-color: #212121;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
     padding: 50px;
     box-sizing: border-box;
@@ -39,6 +43,7 @@ body::before {
 .form .input-box {
     position: relative;
     margin: 20px 0;
+    color: #ff0000;
 }
 
 .form .input-box-radio {
@@ -46,10 +51,6 @@ body::before {
     font-weight: bold;
     color: #777;
 
-}
-
-fieldset {
-    border-color: #03a9f4;
 }
 
 legend {
@@ -62,17 +63,18 @@ legend {
     width: 100%;
     font-size: 16px;
     border: none;
-    border-bottom: 2px solid #777;
+    border-bottom: 2px solid ;
     outline: none;
     padding: 10px 10px 10px 30px;
     box-sizing: border-box;
     font-weight: bold;
     color: #777;
+    background-color: #636161;
 }
 
 .form .input-box input:focus,
 .form .input-box input:valid {
-    border-bottom-color: #03a9f4;
+    color: red;
 }
 
 .form .input-box .fa {
@@ -80,20 +82,20 @@ legend {
     top: 8px;
     left: 5px;
     font-size: 18px;
-    color: #777;
+    color: #ff0000;
 }
 
 .form .input-box input[type="submit"] {
     border: none;
     cursor: pointer;
     background-color: #03a9f4;
-    color: #fff;
+    color: #181818;
     font-weight: bold;
     transition: 0.5s;
 }
 
 .form .input-box input[type="submit"]:hover {
-    background-color: #ff4987;
+    background-color: #ff0000;
 }
 
 fieldset {
@@ -104,7 +106,7 @@ fieldset {
 
 .form a {
     text-decoration: none;
-    color: #777;
+    color: #ff0000;
     margin-top: 20px;
     font-weight: bold;
     display: inline-block;
@@ -112,5 +114,5 @@ fieldset {
 }
 
 .form a:hover {
-    color: #ff4987;
+    color: #ff0000;
 }
