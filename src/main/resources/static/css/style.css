@@ -8,18 +8,6 @@ body {
     background-repeat: no-repeat;
     background-color: #181818;
 }
-
-/*body::before {*/
-/*    content: "";*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    width: 25%;*/
-/*    height: 100%;*/
-/*    background-color: #212121;*/
-/*    opacity: 0.8;*/
-/*}*/
-
 .form {
     position: absolute;
     top: 50%;
@@ -106,7 +94,7 @@ legend {
 
 .form .input-box input:focus,
 .form .input-box input:valid {
-    color: #33fd00;
+    color: #ff0000;
 }
 
 .form .input-box .fa {
@@ -140,11 +128,12 @@ fieldset {
 
 .form a {
     text-decoration: none;
-    color: #00ff2a;
+    color: #ffffff;
     margin-top: 20px;
     font-weight: bold;
     display: inline-block;
     transition: 0.5s;
+    bottom: 12px;
 }
 
 .form a:hover {
@@ -244,4 +233,8 @@ body {
     left: 20px;
     color: hsla(0, 0%, 0%, .5);
     font-size: 16px;
+}
+
+.form .register-btn{
+color: #ffffff;
 }
