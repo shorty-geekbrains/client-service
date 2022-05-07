@@ -1,0 +1,247 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image: url("images/shorty-logo.png");
+    background-size: 12%;
+    background-position: left 15px top 5px;
+    background-repeat: no-repeat;
+    background-color: #181818;
+}
+
+/*body::before {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 25%;*/
+/*    height: 100%;*/
+/*    background-color: #212121;*/
+/*    opacity: 0.8;*/
+/*}*/
+
+.form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    min-height: 400px;
+    background-color: #212121;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+::placeholder{
+    color: #ffffff;
+    opacity: .8;
+}
+
+.label-symbol{
+    font-size: large;
+    color: #777;
+}
+
+.return-main {
+    color: blueviolet;
+
+}
+
+.form h2 {
+    color: #ff0000;
+    margin: 0 0 40px;
+    padding: 0;
+}
+
+.form .input-box {
+    position: relative;
+    margin: 20px 0;
+    color: #ff0000;
+}
+
+input[type="date"]{
+
+    width: 100%;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid ;
+    outline: none;
+    padding: 10px 10px 10px 30px;
+    box-sizing: border-box;
+    font-weight: bold;
+    color: #ffffff;
+    border-color: #777;
+    background-color: #636161;
+    opacity: .8;
+}
+
+
+::-webkit-calendar-picker-indicator{
+    background-color: #ffffff;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+
+legend {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.form .input-box input {
+    width: 100%;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid ;
+    outline: none;
+    padding: 10px 10px 10px 30px;
+    box-sizing: border-box;
+    font-weight: bold;
+    color: #777;
+    background-color: #636161;
+}
+
+.form .input-box input:focus,
+.form .input-box input:valid {
+    color: #33fd00;
+}
+
+.form .input-box .fa {
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    font-size: 18px;
+    color: #ff0000;
+}
+
+.form .input-box input[type="submit"] {
+    border: none;
+    cursor: pointer;
+    background-color: #777;
+    color: #ffffff;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+
+
+.form .input-box input[type="submit"]:hover {
+    background-color: #ff0000;
+}
+
+fieldset {
+    color: #777777;
+}
+
+
+
+.form a {
+    text-decoration: none;
+    color: #00ff2a;
+    margin-top: 20px;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+.form a:hover {
+    color: #ff0000;
+}
+
+/* DEFAULTS */
+/* =============================================== */
+body {
+
+
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px;
+    box-sizing: border-box;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Open Sans', sans-serif;
+}
+
+
+/* MAIN */
+/* =============================================== */
+.rad-label {
+    display: flex;
+    align-items: center;
+
+    border-radius: 100px;
+    padding: 14px 16px;
+    margin: 10px 0;
+
+    cursor: pointer;
+    transition: .3s;
+}
+
+.rad-label:hover,
+.rad-label:focus-within {
+    background: hsla(0, 0%, 80%, .14);
+}
+
+.rad-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    z-index: -1;
+}
+
+.rad-design {
+    width: 22px;
+    height: 22px;
+    border-radius: 100px;
+
+    background: linear-gradient(to right bottom, hsl(154, 97%, 62%), hsl(225, 97%, 62%));
+    position: relative;
+}
+
+.rad-design::before {
+    content: '';
+
+    display: inline-block;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+
+    background: hsl(0, 0%, 90%);
+    transform: scale(1.1);
+    transition: .3s;
+}
+
+.rad-input:checked+.rad-design::before {
+    transform: scale(0);
+}
+
+.rad-text {
+    color: hsl(0, 0%, 60%);
+    margin-left: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 900;
+
+    transition: .3s;
+}
+
+.rad-input:checked~.rad-text {
+    color: hsl(0, 0%, 40%);
+}
+
+
+/* ABS */
+/* ====================================================== */
+.abs-site-link {
+    position: fixed;
+    bottom: 40px;
+    left: 20px;
+    color: hsla(0, 0%, 0%, .5);
+    font-size: 16px;
+}
