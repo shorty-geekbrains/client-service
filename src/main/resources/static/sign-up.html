@@ -25,12 +25,12 @@
 
         <div class="input-box">
             <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-            <input type="password" name="password" placeholder="Пароль" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Должен содержать не менее одной цифры и одной прописной и строчной буквы, а также не менее 8 символов." required>
+            <input type="password" name="password" placeholder="Пароль" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$" title="Должен содержать не менее одной цифры и одной прописной и строчной буквы, а также не менее 8 символов." required>
         </div>
 
         <div class="input-box">
             <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-            <input type="password" name="confPassword" placeholder="Подтвердите пароль" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Должен содержать не менее одной цифры и одной прописной и строчной буквы, а также не менее 8 символов." required>
+            <input type="password" name="confPassword" placeholder="Подтвердите пароль" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$" title="Должен содержать не менее одной цифры и одной прописной и строчной буквы, а также не менее 8 символов." required>
         </div>
 
         <div>
