@@ -1,10 +1,10 @@
 package ru.geekbrains.clientservice.entities;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * @author Nick Musinov e-mail:n.musinov@gmail.com
@@ -12,8 +12,7 @@ import javax.persistence.*;
  */
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @Table(name = "client", schema = "shorty")
 public class Client {
@@ -33,5 +32,6 @@ public class Client {
 
     @Transient
     private transient String confPassword;
+
 
 }

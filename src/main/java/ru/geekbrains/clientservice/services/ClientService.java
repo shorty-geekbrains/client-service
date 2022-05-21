@@ -7,6 +7,8 @@ import ru.geekbrains.clientservice.entities.Client;
 import ru.geekbrains.clientservice.repository.ClientRepo;
 import ru.geekbrains.clientservice.utils.PasswordAndUsernameValidator;
 
+import static java.util.Objects.nonNull;
+
 @Service
 @RequiredArgsConstructor
 public class ClientService {
@@ -24,7 +26,7 @@ public class ClientService {
         if (!passwordValidator.IsValid(client.getPassword())) {
             throw new IllegalArgumentException("Password isn't valid");
         }
-        if (!client.getConfPassword().equals(client.getPassword())) {
+        if (nonNull(client.getConfPassword())&&!client.getConfPassword().equals(client.getPassword())) {
             throw new IllegalArgumentException("Passwords must be identity");
         } else {
             newClient.setPassword(passwordEncoder.encode(client.getPassword()));

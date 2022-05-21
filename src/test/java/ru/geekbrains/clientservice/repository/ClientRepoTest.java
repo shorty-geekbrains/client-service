@@ -1,5 +1,6 @@
 package ru.geekbrains.clientservice.repository;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -28,7 +29,7 @@ class ClientRepoTest {
         client.setConfPassword(password);
         client.setPassword(password);
         client.setEnabled(true);
-        client.setAge("10.04.2020");
+        client.setAge("2020-10-02");
         client.setSex(true);
         client.setPhoto("asd");
         client.setRole_id(2);

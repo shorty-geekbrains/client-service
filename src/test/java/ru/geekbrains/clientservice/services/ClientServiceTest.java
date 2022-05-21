@@ -39,30 +39,29 @@ class ClientServiceTest {
 
     @Test
     void saveClient() {
-        given(passwordValidator.IsValid("null")).willReturn(true);
+        given(passwordValidator.IsValid(anyString())).willReturn(true);
+        given(passwordEncoder.encode(anyString())).willReturn("1111");
 
         Client client = new Client();
         client.setName("bob");
         client.setSecond_name("marley");
-        client.setPassword("null");
-        client.setConfPassword("null");
+        client.setPassword("1111");
         client.setEnabled(true);
-        client.setAge("10.04.2020");
+        client.setAge("2020-10-02");
         client.setSex(true);
         client.setPhoto("asd");
         client.setRole_id(2);
 
         underTest.saveClient(client);
 
-//        ArgumentCaptor<Client> clientArgumentCaptor = ArgumentCaptor.forClass(Client.class);
-//        verify(clientRepo).save(clientArgumentCaptor.capture());
-//        Client capturedClient = clientArgumentCaptor.getValue();
-//        assertThat(capturedClient).isEqualTo(client);
+        ArgumentCaptor<Client> clientArgumentCaptor = ArgumentCaptor.forClass(Client.class);
+        verify(clientRepo).save(clientArgumentCaptor.capture());
+        Client capturedClient = clientArgumentCaptor.getValue();
+        assertThat(capturedClient).isEqualTo(client);
 
     }
 
     @Test
-    @Disabled
     void findClientByClientName() {
         String name = "bob";
         given(clientRepo.findByName(name)).willReturn(new Client());

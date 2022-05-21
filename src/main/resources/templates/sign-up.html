@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="form">
-    <form action="/client-service/api/registration" th:object="${client}" method="post">
+    <form th:action="@{/api/registration}" th:object="${client}" method="post">
         <h2>Регистрация</h2>
         <div class="input-box">
             <i class="fa fa-user" aria-hidden="true"></i>
