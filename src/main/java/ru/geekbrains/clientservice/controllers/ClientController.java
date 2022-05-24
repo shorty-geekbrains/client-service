@@ -2,15 +2,12 @@ package ru.geekbrains.clientservice.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ru.geekbrains.clientservice.entities.Client;
 import ru.geekbrains.clientservice.services.ClientService;
-
-import javax.annotation.security.RolesAllowed;
 
 /**
  * @author Nick Musinov e-mail:n.musinov@gmail.com
