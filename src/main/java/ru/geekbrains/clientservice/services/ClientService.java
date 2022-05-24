@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.geekbrains.clientservice.entities.Client;
+import ru.geekbrains.clientservice.exceptions.ClientNotFoundException;
 import ru.geekbrains.clientservice.repository.ClientRepo;
 import ru.geekbrains.clientservice.utils.PasswordAndUsernameValidator;
 
@@ -46,6 +47,20 @@ public class ClientService {
         return clientRepo.findByName(name);
     }
 
+    public Client updateClient(Client client) {
+        Client existingClient = clientRepo.findById(client.getClientId()).orElse(null);
+
+        if (existingClient == null) {
+            throw new ClientNotFoundException("This user does not exist!");
+        }
+        existingClient.setClientName(client.getClientName());
+        existingClient.setClientSecondName(client.getClientSecondName());
+        existingClient.setAge(client.getAge());
+        existingClient.setClientPassword(client.getClientPassword());
+        existingClient.setSex(client.isSex());
+
+        return clientRepo.save(existingClient);
+    }
 
 }
 

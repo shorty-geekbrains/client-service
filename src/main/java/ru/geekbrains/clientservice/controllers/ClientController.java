@@ -17,7 +17,6 @@ import ru.geekbrains.clientservice.services.ClientService;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/api")
-//@EnableGlobalMethodSecurity(securedEnabled = true)
 public class ClientController {
 
     private final ClientService clientService;
@@ -45,9 +44,9 @@ public class ClientController {
         return new ModelAndView("sign-in");
     }
 
-//    @GetMapping("/test")
-//    public String test() {
-//        return "testt";
-//    }
+    @PutMapping("/update")
+    public Client updateClient(@RequestBody Client client) {
+        return clientService.updateClient(client);
+    }
 }
 
