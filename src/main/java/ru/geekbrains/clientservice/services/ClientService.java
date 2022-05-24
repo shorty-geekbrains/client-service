@@ -33,12 +33,12 @@ public class ClientService {
             newClient.setPassword(passwordEncoder.encode(client.getPassword()));
         }
         newClient.setName(client.getName());
-        newClient.setSecond_name(client.getSecond_name());
+        newClient.setSecondName(client.getSecondName());
         newClient.setEnabled(true);
         newClient.setAge(client.getAge());
         newClient.setSex(client.isSex());
         newClient.setPhoto("asd");
-        newClient.setRole_id(2);
+        newClient.setRoleId(2);
 
         clientRepo.save(newClient);
     }
@@ -48,15 +48,15 @@ public class ClientService {
     }
 
     public Client updateClient(Client client) {
-        Client existingClient = clientRepo.findById(client.getClientId()).orElse(null);
+        Client existingClient = clientRepo.findById(client.getId()).orElse(null);
 
         if (existingClient == null) {
             throw new ClientNotFoundException("This user does not exist!");
         }
-        existingClient.setClientName(client.getClientName());
-        existingClient.setClientSecondName(client.getClientSecondName());
+        existingClient.setName(client.getName());
+        existingClient.setSecondName(client.getSecondName());
         existingClient.setAge(client.getAge());
-        existingClient.setClientPassword(client.getClientPassword());
+        existingClient.setPassword(client.getPassword());
         existingClient.setSex(client.isSex());
 
         return clientRepo.save(existingClient);

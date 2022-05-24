@@ -1,7 +1,6 @@
 package ru.geekbrains.clientservice.services;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -44,13 +43,13 @@ class ClientServiceTest {
 
         Client client = new Client();
         client.setName("bob");
-        client.setSecond_name("marley");
+        client.setSecondName("marley");
         client.setPassword("1111");
         client.setEnabled(true);
         client.setAge("2020-10-02");
         client.setSex(true);
         client.setPhoto("asd");
-        client.setRole_id(2);
+        client.setRoleId(2);
 
         underTest.saveClient(client);
 

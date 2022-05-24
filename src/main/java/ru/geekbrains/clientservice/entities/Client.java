@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * @author Nick Musinov e-mail:n.musinov@gmail.com
@@ -22,9 +21,9 @@ public class Client {
     private Long id;
 
     private String name;
-    private Integer role_id;
+    private Integer roleId;
     private boolean enabled;
-    private String second_name;
+    private String secondName;
     private String age;
     private boolean sex;
     private String password;

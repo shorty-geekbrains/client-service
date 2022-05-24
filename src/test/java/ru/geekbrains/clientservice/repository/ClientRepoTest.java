@@ -1,20 +1,17 @@
 package ru.geekbrains.clientservice.repository;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import ru.geekbrains.clientservice.entities.Client;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * @author Nick Musinov e-mail:n.musinov@gmail.com
  * 11.05.2022
  */
 @DataJpaTest
-@AutoConfigureTestDatabase
 class ClientRepoTest {
 
     @Autowired
@@ -25,14 +22,14 @@ class ClientRepoTest {
         String password = "1234567Az+";
         Client client = new Client();
         client.setName("bob");
-        client.setSecond_name("marley");
+        client.setSecondName("marley");
         client.setConfPassword(password);
         client.setPassword(password);
         client.setEnabled(true);
         client.setAge("2020-10-02");
         client.setSex(true);
         client.setPhoto("asd");
-        client.setRole_id(2);
+        client.setRoleId(2);
 
         repo.save(client);
 
