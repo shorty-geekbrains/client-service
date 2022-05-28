@@ -23,6 +23,7 @@ public class Client {
     private String name;
     private Integer roleId;
     private boolean enabled;
+    @Column(name = "second_name")
     private String secondName;
     private String age;
     private boolean sex;

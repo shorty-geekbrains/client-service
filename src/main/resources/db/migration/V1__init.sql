@@ -13,7 +13,7 @@ create table if not exists shorty.client
     role_id     bigint    not null,
     enabled     boolean   not null,
     second_name char(50)  not null,
-    age         char(50)       not null,
+    age         char(50)  not null,
     sex         boolean   not null,
     "password"  char(60)  not null,
     photo       char(255) not null,
